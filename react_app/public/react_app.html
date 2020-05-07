@@ -15,12 +15,14 @@
     <div id="root3">wait...</div>
     <div id="root4">wait...</div>
     <div id="root5">wait...</div>
+    <div id="root6">wait...</div>
     <script type="text/babel">
         let dom = document.querySelector('#root');
         let dom2 = document.querySelector('#root2');
         let dom3 = document.querySelector('#root3');
         let dom4 = document.querySelector('#root4');
         let dom5 = document.querySelector('#root5');
+        let dom6 = document.querySelector('#root6');
 
         let title = "新タイトル";
         let message = "新しいメッセージです。";
@@ -151,6 +153,36 @@
             {name:'Sachiko', mail:'sachiko@happy', age:29}
         ];
 
+        function elementdata (data) {
+            const th = {
+                color: "white",
+                backgroundColor: "black",
+                padding: "3px 10px"
+            }
+            const td = {
+                border: "1px solid black",
+                padding: "3px 10px",
+            }
+            return (
+                <div>
+                    <table>
+                        <tr>
+                            <th style={th}>name</th>
+                            <th style={th}>mail</th>
+                            <th style={th}>age</th>
+                        </tr>
+                        {data.map( (value) => (
+                            <tr>
+                                <td style={td}>{value.name}</td>
+                                <td style={td}>{value.mail}</td>
+                                <td style={td}>{value.age}</td>
+                            </tr>))
+                        }
+                    </table>
+                </div>
+            )
+        }
+
         let el5 = (
             <div>
                 <table>
@@ -171,6 +203,7 @@
         );
 
         ReactDOM.render(el5, dom5);
+        ReactDOM.render(elementdata(data3), dom6);
     </script>
     
 </body>

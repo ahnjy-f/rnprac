@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+<body>
+    <h1>React</h1>
+    <div id="root">wait...</div>
+
+    <script type="text/babel">
+        let dom = document.querySelector('#root');
+        let msg = "お名前をどうぞ書いてください:";
+        let namebox = '';
+
+        let Nameevent = (event) => {
+            namebox = event.target.value;
+            msg = 'こんにちは、'+namebox+'さん！';
+        };
+
+        let doAction = (event) =>{
+            let el = (
+                <div>
+                    <p>{msg}</p>
+                    <div>
+                        <input type="text" id="input" onChange={Nameevent} />
+                        <button onClick={doAction}>Click</button>
+                    </div>
+                </div>
+            );
+            ReactDOM.render(el, dom);
+        }
+
+       doAction();
+    </script>
+</body>
+</html>
