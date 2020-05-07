@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+<body>
+    <h1>React</h1>
+    <div id="root">wait...</div>
+    <div id="root2">wait...</div>
+    <div id="root3">wait...</div>
+    <div id="root4">wait...</div>
+    <div id="root5">wait...</div>
+    <script type="text/babel">
+        let dom = document.querySelector('#root');
+        let dom2 = document.querySelector('#root2');
+        let dom3 = document.querySelector('#root3');
+        let dom4 = document.querySelector('#root4');
+        let dom5 = document.querySelector('#root5');
+
+        let title = "新タイトル";
+        let message = "新しいメッセージです。";
+        let message2 = "メッセージを表示します。";
+        let link= "http://google.com";
+        const msg_s = {
+            fontSize:"20pt",
+            color:"red",
+            border:"1px solid blue"
+        }
+
+        const msg = {
+            fontSize:"20pt",
+            fontWeight: "bold",
+            color:"red",
+            border:"2px solid green"
+        }
+
+        let printMsg = function(msg, size, color) {
+            const style= {
+                fontSize: size + "pt",
+                fontWeight: '700',
+                color: color,
+                border:"1px solid " + color
+            };
+            return <p style={style}>{msg}</p>;
+        }
+
+        let el = (
+            <div>
+                <h2>JSX sample</h2>
+                <p>This is sample message.</p>
+            </div>
+        );
+
+        let el2 = (
+            <div>
+                <h2>{title}</h2>
+                <p><a href={link}>{message}</a></p>
+                <p style={msg_s}>{message}</p>
+
+                {printMsg('最初のメッセージ', 30, '#ddd')}
+                {printMsg('次のメッセージ', 20, '#aaa')}
+                {printMsg('最後のメッセージ', 14, '#333')}
+            </div>
+        );
+
+        ReactDOM.render(el, dom);
+        ReactDOM.render(el2, dom2);
+
+        // 2-11, 2-12
+        let flg = false; // ⭐️
+
+        let message_true = "メッセージを表示します。";
+        let message_false = "メッセージはありません……";
+
+        const msg_true = {
+            fontSize:"20pt",
+            fontWeight: "bold",
+            color:"red",
+            border:"2px solid green"
+        }
+
+        const msg_false = {
+            fontSize:"16pt",
+            fontWeight: "plain",
+            color:"white",
+            backgroundColor:"blue",
+        }
+
+        let el3 = (
+            <div>
+                {flg &&
+                    <p style={msg}>{message2}</p>
+                }
+                {flg ?
+                    <p style={msg_true}>{message_true}</p>
+                :
+                    <p style={msg_false}>{message_false}</p>
+                }
+            </div>
+        );
+
+        ReactDOM.render(el3, dom3);
+
+        // 2-13
+
+        const list = {
+            fontSize: "18pt",
+            padding: "5px 50px",
+        }
+        let data = new Array();
+        for ( let i = 0; i < 10; i++ ){
+            data[i] = <li>test{i}</li>;
+        }
+        let data2 = new Array();
+        for ( let i = 0; i < 10; i++ ){
+            data2[i] = "test"+i;
+        }
+
+        let el4 = (
+            <div>
+                <ul style={list}>
+                    {data}
+                    {data2.map( function(value){
+                            return <li>{value}</li>;
+                    } )}
+                </ul>
+            </div>
+        );
+
+        ReactDOM.render(el4, dom4);
+
+        // 2-14
+        const th = {
+            color: "white",
+            backgroundColor: "black",
+            padding: "3px 10px"
+        }
+        const td = {
+            border: "1px solid black",
+            padding: "3px 10px",
+        }
+
+        let data3 = [
+            {name:'Taro', mail:'taro@yamada', age:45},
+            {name:'Hanako', mail:'hanako@flower', age:37},
+            {name:'Sachiko', mail:'sachiko@happy', age:29}
+        ];
+
+        let el5 = (
+            <div>
+                <table>
+                    <tr>
+                        <th style={th}>name</th>
+                        <th style={th}>mail</th>
+                        <th style={th}>age</th>
+                    </tr>
+                    {data3.map( (value) => (
+                        <tr>
+                            <td style={td}>{value.name}</td>
+                            <td style={td}>{value.mail}</td>
+                            <td style={td}>{value.age}</td>
+                        </tr>))
+                    }
+                </table>
+            </div>
+        );
+
+        ReactDOM.render(el5, dom5);
+    </script>
+    
+</body>
+</html>
