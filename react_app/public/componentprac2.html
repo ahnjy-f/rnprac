@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+<body>
+    <h1>React</h1>
+    <div id="root">wait...</div>
+
+    <script type="text/babel">
+        let dom = document.querySelector('#root');
+        
+        const msg1 = {
+            fontSize: "20pt",
+            padding: "10px",
+            border: "double 5px magenta"
+        };
+
+        const msg2 = {
+            fontSize: "16pt",
+            fontWeight: "bold",
+            padding: "10px",
+            backgroundColor: "cyan"
+        }
+
+        // これが関数コンポーネント
+        function Welcome(props){
+            return <p style={props.style}>Hello, {props.name}React!!</p>;
+        }
+
+        // +, -, *, /
+        function Calc(props){
+            let result = 0;
+            
+            if (props.operator == '+'){
+                result = props.first+props.second
+            } else if (props.operator == '-') {
+                result = props.first-props.second
+            } else if (props.operator == '*') {
+                result = props.first*props.second
+            } else if (props.operator == '/') {
+                result = props.first/props.second
+            } else {
+                return <p style={msg1}>演算字に問題があります。</p>;
+            }
+
+            return <p style={msg2}>{props.first} {props.operator} {props.second}の結果は 「{result}」です。</p>
+        }
+
+        //表示するJSX
+        let el = (
+            <div>
+                <Welcome name="Taro" style={msg1} />
+                <Welcome name="花子" style={msg2} />
+                <Calc first ={2} second={5} operator='+' />
+                <Calc first ={2} second={5} operator='-' />
+                <Calc first ={2} second={5} operator='*' />
+                <Calc first ={2} second={5} operator='/' />
+                <Calc first ={2} second={5} operator='wajato' />
+            </div>
+        );
+        ReactDOM.render(el, dom);
+    </script>
+</body>
+</html>
