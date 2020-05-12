@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
-import Memo from './memo/Memo';
-import AddForm from './memo/AddForm';
-import FindForm from './memo/FindForm';
-import DelForm from './memo/DelForm';
+import SelectForm from './graph/SelectForm';
+import Graph from './graph/Graph';
+// import ValueForm from './graph/ValueForm.js';
 
 // Appコンポーネント
 class App extends Component {
@@ -19,14 +18,13 @@ class App extends Component {
     render() {
         return (
             <div>
-                <h1>Memo</h1>
-                <AddForm />
+                <h1>Graph</h1>
                 <hr />
                 <table><tbody><tr>
-                    <td style={this.td}><FindForm /></td>
-                    <td style={this.td}><DelForm /></td>
+                    <td style={this.td}><SelectForm /></td>
+                    {/* <td style={this.td}><ValueForm /></td> */}
                 </tr></tbody></table>
-                <Memo />
+                <Graph />
             </div>
         );
     }
