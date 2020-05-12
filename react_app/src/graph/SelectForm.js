@@ -18,7 +18,7 @@ class SelectForm extends Component {
     constructor(props){
         super(props);
         this.state={
-            people: null,
+            people: "20",
             amount: 0
         }
         this.doSelectChange = this.doSelectChange.bind(this);
@@ -50,7 +50,7 @@ class SelectForm extends Component {
 
         this.props.dispatch(action);
         this.setState({
-            people: null,
+            people: "20",
             amount: 0
         });
     }
