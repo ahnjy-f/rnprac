@@ -69,7 +69,7 @@ class SelectForm extends Component {
                     <select onChange={this.doSelectChange} style={this.input}>
                         {items}
                     </select>
-                    <input type="text" size="20" onChange={this.doInputChange} style={this.input} required />
+                    <input type="number" size="20" onChange={this.doInputChange} style={this.input} max="200" required />
                     <input type="submit" style={this.btn} value="add" />
                 </form>
             </div>
