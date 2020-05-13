@@ -26,7 +26,7 @@ class Graph extends Component {
         
         data = this.props.data.map((value)=>{
             let star = '';
-            const amount = this.props.data[n].amount / 10;
+            const amount = Math.floor(this.props.data[n].amount / 10);
 
             console.log(this.props.data[n].amount / 10);
 

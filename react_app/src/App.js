@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './App.css';
 import SelectForm from './graph/SelectForm';
 import Graph from './graph/Graph';
+import RealGraph from './graph/RealGraph';
 // import ValueForm from './graph/ValueForm.js';
 
 // Appコンポーネント
@@ -25,6 +26,7 @@ class App extends Component {
                     {/* <td style={this.td}><ValueForm /></td> */}
                 </tr></tbody></table>
                 <Graph />
+                <RealGraph />
             </div>
         );
     }
