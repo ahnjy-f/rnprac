@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
-import SelectForm from './graph/SelectForm';
-import Graph from './graph/Graph';
-import RealGraph from './graph/RealGraph';
-// import ValueForm from './graph/ValueForm.js';
+import Message from './tictactoe/Message';
+import Board from './tictactoe/Board';
 
-// Appコンポーネント
 class App extends Component {
-    td = {
-        width: "250px"
+
+    p = {
+        color: "gray",
+        fontSize: "5pt"
     }
 
     constructor(props){
@@ -19,14 +18,15 @@ class App extends Component {
     render() {
         return (
             <div>
-                <h1>Graph</h1>
+                <h1>Tic-Tac-Toe</h1>
                 <hr />
-                <table><tbody><tr>
-                    <td style={this.td}><SelectForm /></td>
-                    {/* <td style={this.td}><ValueForm /></td> */}
-                </tr></tbody></table>
-                <Graph />
-                <RealGraph />
+                <Message />
+                <Board />
+                <div>
+                    <p style={this.p}> o picture : <a href='https://pngtree.com/so/검정'>검정 png from pngtree.com</a> </p>
+                    <p style={this.p}> x picture : <a href='https://pngtree.com/so/x'>x png from pngtree.com</a> </p>
+                    <p style={this.p}> Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a> </p>
+                </div>
             </div>
         );
     }
