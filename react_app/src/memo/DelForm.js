@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteMemo } from './Store';
+import AllDelForm from './AllDelForm';
 
 class DelForm extends Component {
     input = {
@@ -11,6 +12,11 @@ class DelForm extends Component {
     }
     btn = {
         fontSize: "10pt",
+        color: "#006",
+        padding: "2px 10px"
+    }
+    label = {
+        fontSize: "12pt",
         color: "#006",
         padding: "2px 10px"
     }
@@ -39,6 +45,7 @@ class DelForm extends Component {
         });
     }
 
+
     render(){
         let n = 0;
         let items = this.props.data.map((value)=>(
@@ -46,6 +53,7 @@ class DelForm extends Component {
         ));
         return (
             <div>
+                <AllDelForm />
                 <form onSubmit={this.doAction}>
                     <select onChange={this.doChange} defaultValue="-1" style={this.input}>
                         {items}

@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
-import Message from './tictactoe/Message';
-import Board from './tictactoe/Board';
+import Memo from './memo/Memo';
+import AddForm from './memo/AddForm';
+import FindForm from './memo/FindForm';
+import DelForm from './memo/DelForm';
+import PersistForm from './memo/PersistForm';
 
-class App extends Component {
-
-    p = {
-        color: "gray",
-        fontSize: "5pt"
+// Appコンポーネント
+class App4 extends Component {
+    td = {
+        width: "250px"
     }
 
     constructor(props){
@@ -18,18 +20,18 @@ class App extends Component {
     render() {
         return (
             <div>
-                <h1>Tic-Tac-Toe</h1>
+                <h1>Memo</h1>
+                <AddForm />
                 <hr />
-                <Message />
-                <Board />
-                <div>
-                    <p style={this.p}> o picture : <a href='https://pngtree.com/so/검정'>검정 png from pngtree.com</a> </p>
-                    <p style={this.p}> x picture : <a href='https://pngtree.com/so/x'>x png from pngtree.com</a> </p>
-                    <p style={this.p}> Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a> </p>
-                </div>
+                <table><tbody><tr>
+                    <td style={this.td}><FindForm /></td>
+                    <td style={this.td}><DelForm /></td>
+                    <td style={this.td}><PersistForm /></td>
+                </tr></tbody></table>
+                <Memo />
             </div>
         );
     }
 }
 
-export default connect() (App);
+export default connect() (App4);
