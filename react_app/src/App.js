@@ -1,37 +1,35 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
-import Memo from './memo/Memo';
-import AddForm from './memo/AddForm';
-import FindForm from './memo/FindForm';
-import DelForm from './memo/DelForm';
-import PersistForm from './memo/PersistForm';
+import Item from './restaurant/Item';
+import View from './restaurant/View';
 
-// Appコンポーネント
-class App4 extends Component {
-    td = {
-        width: "250px"
-    }
+import LikeView from './restaurant/LikeView';
 
-    constructor(props){
-        super(props);
-    }
 
-    render() {
-        return (
+class App extends Component{
+
+    render(){
+        // let jsondata;
+        // fetch('https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=bfce39765f3edea25de5ee1cd5a8003a&takeout=1').then(function(response) {
+        //     let json = response.json();
+        //     console.log(json);
+        // });
+
+        return(
             <div>
-                <h1>Memo</h1>
-                <AddForm />
+               <div>
+                   <h1>Restaruant 検索</h1>
+                </div>
                 <hr />
-                <table><tbody><tr>
-                    <td style={this.td}><FindForm /></td>
-                    <td style={this.td}><DelForm /></td>
-                    <td style={this.td}><PersistForm /></td>
-                </tr></tbody></table>
-                <Memo />
+                <LikeView />
+                <hr />
+                <Item />
+                <hr />
+                <View />
             </div>
         );
-    }
+    };
 }
 
-export default connect() (App4);
+export default connect() (App);
